@@ -1,0 +1,75 @@
+<div class="settings-widget bg-color-2 dark:bg-color-2">
+  <h2 class="m-4">Settings</h2>
+
+  <div class="flex rounded-lg p-4 m-4 shadow bg-color-4-l dark:bg-color-2">
+    <div class="flex flex-col">
+      <h4>Quantity questions in a test</h4>
+
+      <ul class="flex">
+        <li (click)="setTestSize(10)">
+          <input
+            id="r1"
+            type="radio"
+            value="10"
+            [checked]="config.testSize === 10"
+          />
+          <label for="r1">10</label>
+        </li>
+        <li (click)="setTestSize(15)">
+          <input
+            id="r2"
+            type="radio"
+            value="15"
+            [checked]="config.testSize === 15"
+          />
+          <label for="r2">15</label>
+        </li>
+        <li checked (click)="setTestSize(20)">
+          <input
+            id="r3"
+            type="radio"
+            value="20"
+            [checked]="config.testSize === 20"
+          />
+          <label for="r3">20</label>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="flex rounded-lg p-4 m-4 shadow bg-color-4-l dark:bg-color-2">
+    <div class="flex flex-col">
+      <h4>Level</h4>
+
+      <ul class="flex">
+        <li (click)="setDifficulty(1)">
+          <input
+            id="rl1"
+            type="radio"
+            value="1"
+            [checked]="config.difficulty === 1"
+          />
+          <label for="rl1">Junior</label>
+        </li>
+        <li (click)="setDifficulty(2)">
+          <input
+            id="rl2"
+            type="radio"
+            value="2"
+            [checked]="config.difficulty === 2"
+          />
+          <label for="rl2">Middle</label>
+        </li>
+        <li (click)="setDifficulty(3)">
+          <input
+            id="rl3"
+            type="radio"
+            value="3"
+            [checked]="config.difficulty === 3"
+          />
+          <label for="rl3">Sinior</label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

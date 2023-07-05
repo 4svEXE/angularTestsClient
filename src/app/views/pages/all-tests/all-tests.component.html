@@ -1,0 +1,103 @@
+<div class="container h-[100vh] flex justify-center items-center">
+  <div
+    class="contetnt max-h-[90vh] max-w-[90%] flex rounded-xl text-black dark:text-white"
+  >
+    <div
+      class=" mr-10 bg-color-2-l dark:bg-color-1 overflow-y-scroll"
+    >
+      <div
+        class="grid grid-cols-12 rounded-lg p-4 m-4 shadow bg-color-3-l dark:bg-color-2"
+      >
+        <div
+          class="flex items-center justify-center border border-black dark:border-white p-3"
+        >
+          number
+        </div>
+        <div
+          class="flex items-center justify-center border border-black dark:border-white p-3 border-l-0"
+        >
+          difficulty
+        </div>
+        <div
+          class="flex items-center justify-center border border-black dark:border-white p-3 border-l-0"
+        >
+          image
+        </div>
+        <div
+          class="flex items-center justify-center border border-black dark:border-white p-3 border-l-0 col-span-3"
+        >
+          title
+        </div>
+        <div
+          class="flex items-center justify-center border border-black dark:border-white p-3 border-l-0 col-span-2"
+        >
+          <div class="flex p-2">answers</div>
+        </div>
+        <div
+          class="flex items-center justify-center border border-black dark:border-white p-3 border-l-0 col-span-3"
+        >
+          explanation
+        </div>
+        <div
+          class="items-center justify-center flex border border-black dark:border-white border-l-0"
+        >
+          controls
+        </div>
+      </div>
+
+      <div
+        *ngFor="let test of tests; let i = index"
+        class="grid grid-cols-12 rounded-lg p-4 m-4 shadow bg-color-3-l dark:bg-color-2"
+      >
+        <div class="flex border border-black dark:border-white p-3">
+          {{i+1}}
+        </div>
+        <div class="flex border border-black dark:border-white p-3 border-l-0">
+          {{test.difficulty}}
+        </div>
+        <div class="flex border border-black dark:border-white p-3 border-l-0">
+          <img
+            width="100%"
+            class="h-[50px]"
+            src="{{test.image}}"
+            alt="code example"
+          />
+        </div>
+        <div
+          class="flex border border-black dark:border-white p-3 border-l-0 col-span-3"
+        >
+          {{ test.title}}
+        </div>
+        <div
+          class="flex flex-col border border-black dark:border-white p-3 border-l-0 col-span-2"
+        >
+          <div class="flex p-2 border-b border-green-500">
+            {{test.answers[0].title}}
+          </div>
+          <div class="flex p-2 border-b border-red-600">
+            {{test.answers[1].title}}
+          </div>
+          <div class="flex p-2 border-b border-red-600">
+            {{test.answers[2].title}}
+          </div>
+          <div class="flex p-2 border-b border-red-600">
+            {{test.answers[3].title}}
+          </div>
+        </div>
+        <div
+          class="flex border border-black dark:border-white p-3 border-l-0 col-span-3"
+        >
+          {{test.explanation}}
+        </div>
+        <div class="flex flex-col justify-center">
+          <button class="outline outline-1 m-2" routerLink="{{'edit-test/'+test._id}}">
+            edit
+          </button>
+          <button class="outline outline-1 m-2" (click)="deleteTest(test._id)">
+            delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

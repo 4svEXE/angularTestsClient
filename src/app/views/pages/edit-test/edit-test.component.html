@@ -1,0 +1,180 @@
+<form
+  class="container h-[100vh] flex justify-center items-center"
+  (submit)="createNewTest($event);"
+>
+  <div class="contetnt flex rounded-xl text-black dark:text-white">
+    <div class="input-block mr-10 bg-color-2-l dark:bg-color-1">
+      <h1
+        class="text-black dark:text-white border-b-2 border-black dark:border-white"
+      >
+        Create new test question.
+      </h1>
+
+      <div
+        class="flex flex-col rounded-lg p-4 m-4 shadow bg-color-3-l dark:bg-color-2"
+      >
+        <h3 class="border-b border-black dark:border-white">
+          Write the question:
+        </h3>
+        <div class="brise-text">
+          <textarea
+            #title
+            (input)="testModel.title = title.value"
+            [value]="testModel.title"
+            cols="30"
+            rows="4"
+            required
+          ></textarea>
+          <label>Question</label>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col rounded-lg p-4 m-4 shadow bg-color-3-l dark:bg-color-2"
+      >
+        <h3 class="border-b border-black dark:border-white">
+          Write answers:
+        </h3>
+        <div class="wrap-lin">
+          <div class="brise-input">
+            <input
+              #answerRight
+              (input)="testModel.answers[0].title = answerRight.value"
+              [value]="testModel.answers[0].title"
+              type="text"
+              required
+            />
+            <label class="text-gray-300">Right answer</label>
+            <span class="line"></span>
+          </div>
+
+          <div class="brise-input">
+            <input
+              #answerNotRight1
+              (input)="testModel.answers[1].title = answerNotRight1.value"
+              [value]="testModel.answers[1].title"
+              type="text"
+              required
+            />
+            <label class="text-gray-300">Not right answer</label>
+            <span class="line"></span>
+          </div>
+
+          <div class="brise-input">
+            <input
+              #answerNotRight2
+              (input)="testModel.answers[2].title = answerNotRight2.value"
+              [value]="testModel.answers[2].title"
+              type="text"
+              required
+            />
+            <label class="text-gray-300">Not right answer</label>
+            <span class="line"></span>
+          </div>
+
+          <div class="brise-input">
+            <input
+              #answerNotRight3
+              (input)="testModel.answers[3].title = answerNotRight3.value"
+              [value]="testModel.answers[3].title"
+              type="text"
+              required
+            />
+            <label class="text-gray-300">Not right answer</label>
+            <span class="line"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-block bg-color-2-l dark:bg-color-1">
+      <div
+        class="flex flex-col rounded-lg p-4 m-4 shadow bg-color-3-l dark:bg-color-2"
+      >
+        <h3 class="border-b border-black dark:border-white">
+          Image URL:
+        </h3>
+        <div class="wrap-lin">
+          <div class="brise-input">
+            <input
+              #imageUrl
+              (input)="testModel.image = imageUrl.value"
+              [value]="testModel.image"
+              type="text"
+              required
+            />
+            <label class="text-gray-300">http://www.images.com/image.png</label>
+            <span class="line"></span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col rounded-lg p-4 m-4 shadow bg-color-3-l dark:bg-color-2"
+      >
+        <h3 class="border-b border-black dark:border-white">
+          Explanation to the right answer:
+        </h3>
+
+        <div class="brise-text">
+          <textarea
+            #explanation
+            (input)="testModel.explanation = explanation.value"
+            [value]="testModel.explanation"
+            cols="30"
+            rows="4"
+            required
+          ></textarea>
+          <label>Explanation</label>
+        </div>
+      </div>
+
+      <div class="flex rounded-lg p-4 m-4 shadow bg-color-3-l dark:bg-color-2">
+        <div class="flex flex-col">
+          <h4>Level</h4>
+
+          <div class="flex">
+            <p (click)="setDifficulty(1)">
+              <input
+                type="radio"
+                id="test1"
+                name="radio-group"
+                [checked]="testModel.difficulty === 1"
+              />
+              <label for="test1" class="text-black dark:text-white"
+                >Junior</label
+              >
+            </p>
+            <p (click)="setDifficulty(2)">
+              <input
+                type="radio"
+                id="test2"
+                name="radio-group"
+                [checked]="testModel.difficulty === 2"
+              />
+              <label for="test2" class="text-black dark:text-white"
+                >Middle</label
+              >
+            </p>
+            <p (click)="setDifficulty(3)">
+              <input
+                type="radio"
+                id="test3"
+                name="radio-group"
+                [checked]="testModel.difficulty === 3"
+              />
+              <label for="test3" class="text-black dark:text-white"
+                >Sinior</label
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex">
+        <!-- <a (click)="clearInputs(); showToasterInfo('Areas wos cleaned!', 'Message')">clear</a>
+        <button (click)="$event.stopPropagation()" class="active">save</button> -->
+      </div>
+    </div>
+  </div>
+</form>

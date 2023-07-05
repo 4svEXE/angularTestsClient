@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./tooltip.scss";
+@import "./checkboxes.scss";
+
+:root {
+  --bg-color-1-l: #06ffff;
+  --bg-color-2-l: #f6ffde;
+  --bg-color-2_op: #d2e9e990;
+  --bg-color-3-l: #e3f2c1;
+  --bg-color-4-l: #ab09f0;
+
+  --bg-color-1: #164b60;
+  --bg-color-2: #1b6b93;
+  --bg-color-2_op: #1b6b9390;
+  --bg-color-3: #4fc0d0;
+  --bg-color-4: #013b4f;
+}
+
+body {
+  background-color: inherit;
+}
+
+ul,
+li {
+  width: 100%;
+}
+button,
+a {
+  background-color: var(--bg-color-2_op);
+  border: none;
+  color: white;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 0px;
+  cursor: pointer;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--bg-color-3);
+  }
+
+  &.active {
+    background-color: var(--bg-color-2);
+    width: 106%;
+  }
+
+  img {
+    height: 24px;
+  }
+}
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.fill-white {
+  svg {
+    fill: #fff;
+  }
+}
+
+.inverted {
+  filter: invert(1);
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 440px) {
+  .container {
+    max-width: 400px;
+  }
+}
+@media (max-width: 420px) {
+  .container {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    max-width: 300px;
+  }
+}
+@media (max-width: 240px) {
+  .container {
+    max-width: 240px;
+  }
+}

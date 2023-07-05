@@ -1,0 +1,59 @@
+<form class="container flex flex-col items-center"
+(submit)="registerUser($event);">
+  <div class="input-block container  bg-color-2-l dark:bg-color-1">
+    <div
+      class="flex flex-col rounded-lg p-4 m-4 overflow-hidden shadow bg-color-3-l dark:bg-color-2"
+    >
+      <h3 class="border-b border-black dark:border-white">
+        Register a new user.
+      </h3>
+      <div class="wrap-lin">
+        <div class="brise-input">
+          <input 
+          #firstNameInp
+          (input)="setFirstName(firstNameInp.value)"
+          [value]="user.firstName"
+          minlength="5"
+          type="text" required />
+          <label class="text-gray-300">First name</label>
+          <span class="line"></span>
+        </div>
+
+        <div class="brise-input">
+          <input 
+          #lastNameInp
+          (input)="setLastName(lastNameInp.value)"
+          [value]="user.lastName"
+          minlength="5"
+          type="text" required />
+          <label class="text-gray-300">Last name</label>
+          <span class="line"></span>
+        </div>
+
+        <div class="brise-input">
+          <input 
+          #emailInp
+          (input)="setEmail(emailInp.value)"
+          [value]="user.email"
+          minlength="5"
+          type="text" required />
+          <label class="text-gray-300">email</label>
+          <span class="line"></span>
+        </div>
+
+        <div class="brise-input">
+          <input 
+          #passwordInp
+          (input)="setPassword(passwordInp.value)"
+          [value]="user.password"
+          minlength="5"
+          type="text" required />
+          <label class="text-gray-300">password</label>
+          <span class="line"></span>
+        </div>
+      </div>
+
+      <button  class="">register</button>
+    </div>
+  </div>
+</form>

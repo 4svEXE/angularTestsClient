@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="container statusbar w-full flex justify-center">
+    <div
+      class="status-circle"
+      *ngFor="let status of questions"
+      [class.active]="status.isActive"
+      [class]="status.isCorrect ? 'true' : 'false'"
+    ></div>
+  </div>
+  <div
+    class="container content bg-color-3-l dark:bg-color-4 flex flex-col justify-center items-center"
+  >
+    <h2 class="p-4">{{tests[currentQuestion].title}}</h2>
+
+    <div class="bg-color-2-l dark:bg-color-2">
+      <!-- <div class="loader"></div> -->
+      <img class="w-full pb-4" src="{{tests[currentQuestion].image}}" alt="" />
+    </div>
+
+    <button
+      *ngFor="let answer of tests[currentQuestion].answers"
+      (click)="nextQuestion(answer.isCorrect)"
+    >
+      {{answer.title}}
+    </button>
+  </div>
+</div>

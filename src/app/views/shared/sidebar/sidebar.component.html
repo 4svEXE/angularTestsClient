@@ -1,0 +1,120 @@
+<button class="sidebar-toggle" (click)="isOpenSisebar = !isOpenSisebar">
+ {{isOpenSisebar?"|||":">"}}
+</button>
+
+<nav
+  class="sidebar-container h-[100vh] bg-color-1 dark:bg-color-1"
+  [class.active]="isActive"
+  [class.hidden]="!isOpenSisebar"
+>
+  <div class="h-[100vh] sidebar" [class.hidden]="!isOpenSisebar">
+    
+
+    <div class="flex flex-col w-[50px]">
+      <div class="logo flex flex-col" routerLink="/home">
+        <img
+          class="inverted"
+          src="assets/img/sidebar/angular.svg"
+          alt="register"
+        />
+        <h2 class="w-full text-center text-white">TESTS</h2>
+      </div>
+
+      <ul class="nav">
+        <li data-tooltip="Home">
+          <button routerLink="/home" [routerLinkActive]="['active']" class="">
+            <img
+              class="inverted"
+              src="assets/img/sidebar/home.svg"
+              alt="home"
+            />
+          </button>
+        </li>
+        <!-- <li data-tooltip="Start the test">
+        <button routerLink="/tests" [routerLinkActive]="['active']">
+          <img class="inverted" src="assets/img/sidebar/test.svg" alt="test" />
+        </button>
+      </li> -->
+        <li data-tooltip="Test settings" *ngIf="isAdmin">
+          <button (click)="isActive=!isActive" [class.active]="isActive">
+            <img
+              class="inverted"
+              src="assets/img/sidebar/settings.svg"
+              alt="test"
+            />
+          </button>
+        </li>
+
+        <div class="flex flex-col" *ngIf="isAdmin">
+          <li data-tooltip="Add new test">
+            <button routerLink="/create-test" [routerLinkActive]="['active']">
+              <img
+                class="inverted"
+                src="assets/img/sidebar/plus.svg"
+                alt="test"
+              />
+            </button>
+          </li>
+
+          <li data-tooltip="shadow all test">
+            <button routerLink="/all-tests" [routerLinkActive]="['active']">
+              <img
+                class="inverted"
+                src="assets/img/sidebar/plus.svg"
+                alt="test"
+              />
+            </button>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <ul class="settings">
+      <!-- <li><button>ENG</button></li> -->
+      <li>
+        <button (click)="sendThemeState()">
+          <img
+            class="inverted"
+            src="assets/img/sidebar/{{isDarkTheme? 'sun': 'moon'}}.svg"
+            alt="test"
+          />
+        </button>
+      </li>
+    </ul>
+
+    <ul *ngIf="!isLoggetUser">
+      <li routerLink="/register" [routerLinkActive]="['active']">
+        <button data-tooltip="registration">
+          <img
+            class="inverted"
+            src="assets/img/sidebar/registr.svg"
+            alt="register"
+          />
+        </button>
+      </li>
+      <li routerLink="/login" [routerLinkActive]="['active']">
+        <button data-tooltip="Login">
+          <img
+            class="inverted"
+            src="assets/img/sidebar/login.svg"
+            alt="login"
+          />
+        </button>
+      </li>
+    </ul>
+
+    <ul *ngIf="isLoggetUser">
+      <li
+        routerLink="{{'/user-cabinet/'+token}}"
+        [routerLinkActive]="['active']"
+      >
+        <button>cabinet</button>
+      </li>
+      <li (click)="logout()">
+        <button>logout</button>
+      </li>
+    </ul>
+  </div>
+
+  <app-settings-widget />
+</nav>

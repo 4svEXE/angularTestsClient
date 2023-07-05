@@ -1,0 +1,34 @@
+<div class="container flex">
+  <div
+    class="input-block bg-color-2-l dark:bg-color-1"
+  >
+  <h1>Test results</h1>
+  <div class="flex justify-between">
+    <h2>{{currentQuestion+1}}/{{tests.length}}</h2>
+
+    <p>result: {{correctAnswers}}/{{tests.length}}</p>
+  </div>
+
+    <div class="flex flex-col w-full input-block">
+      <h3>Question:</h3>
+      <p>{{tests[currentQuestion].title}}</p>
+    </div>
+
+    <div class="flex flex-col w-full input-block">
+      <h3>Your answer:</h3>
+      <p>{{tests[currentQuestion].isCorrect? 'correct': 'not correct'}}</p>
+    </div>
+
+    <div class="flex flex-col w-full input-block">
+      <h3>Question explanation:</h3>
+      <p class="">{{tests[currentQuestion].explanation}}</p>
+    </div>
+
+    <div class="flex">
+        <a (click)="prew()">←</a>
+        <a (click)="next()">→</a>
+    </div>
+
+    
+  </div>
+</div>

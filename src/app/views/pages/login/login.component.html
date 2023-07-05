@@ -1,0 +1,48 @@
+<form class="container flex flex-col items-center" (submit)="loginUser($event)">
+  <div
+    class="input-block container overflow-hidden bg-color-2-l dark:bg-color-1"
+  >
+    <h1
+      class="text-black dark:text-white border-b-2 border-black dark:border-white"
+    >
+      Register a new user.
+    </h1>
+
+    <div
+      class="flex flex-col rounded-lg p-4 m-4 shadow bg-color-3-l dark:bg-color-2"
+    >
+      <h3 class="border-b border-black dark:border-white">
+        Input data:
+      </h3>
+      <div class="wrap-lin">
+        <div class="brise-input">
+          <input
+            #emailInp
+            (input)="setEmail(emailInp.value)"
+            [value]="email"
+            type="text"
+            required
+          />
+          <label class="text-gray-300">email</label>
+          <span class="line"></span>
+        </div>
+
+        <div class="brise-input">
+          <input
+            #passwordInp
+            (input)="setPassword(passwordInp.value)"
+            [value]="password"
+            type="text"
+            required
+          />
+          <label class="text-gray-300">password</label>
+          <span class="line"></span>
+        </div>
+      </div>
+
+      <a href="">i forgot my password :(</a>
+
+      <button class="">login</button>
+    </div>
+  </div>
+</form>
